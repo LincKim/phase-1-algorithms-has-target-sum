@@ -1,5 +1,12 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    const otherNum = target - array[i]
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] === otherNum) return true
+    }
+  }
+  return false;
 }
 
 /* 
@@ -8,6 +15,11 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  Find a way to take the numbers inside the array beginning
+  from the 1st index to the last adding two of the numbers 
+  of the array and then checking whether they equal the target.
+  If it does then the return value is 'true'
+  Otherwise 'false' is the value.
 */
 
 /*
@@ -29,6 +41,11 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([15, 45, 78, 9], 4));
 }
 
 module.exports = hasTargetSum;
